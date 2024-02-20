@@ -2,6 +2,9 @@
 import Head from "next/head";
 import Script from "next/script"
 import Image from 'next/image'
+import Link from "next/link";
+import { useAuth } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 
 import feedTab from "../features/tabs/feedTab"
 
@@ -29,6 +32,8 @@ import React from "react";
 export default function Home() {
   const [tab, setActiveTab] = useState("feed");
 
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
+
   return (
     <>
       <Head>
@@ -38,7 +43,6 @@ export default function Home() {
         <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async />
 
       </Head>
-
       <main className="relative flex min-h-screen h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#111111]" style={{bottom: "-5px", paddingBottom: "0px"}}>
         <Menubar className="top-0 sticky items-end objects-contain bg-foreground border-none" dir="rtl" style={{
           position: "fixed",

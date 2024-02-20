@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { api } from "~/utils/api";
+import { useEffect, useReducer, useState } from "react";
+import React from "react";
+import { useAuth, useUser  } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 
 const feedTab = () => {
     const hello = api.post.hello.useQuery({ text: "from tRPC" });
+
+    const [tab, setActiveTab] = useState("feed");
+
+    const { isLoaded, userId, sessionId, getToken } = useAuth();
+
+    //real bad test code lol
+    const { user } = useUser();
     return (
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
@@ -19,6 +30,9 @@ const feedTab = () => {
             Just the basics - Everything you need to know to set up your
             database and authentication.
             </div>
+            <div>
+                {JSON.stringify([user?.fullName, user?.username])}
+            </div>
         </Link>
         <Link
             className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
@@ -30,11 +44,12 @@ const feedTab = () => {
             Learn more about Create T3 App, the libraries it uses, and how
             to deploy it.
             </div>
+            <p>cleark data in this componet</p>
+            <div>
+            Hello, {userId} your current active session is {sessionId}
+            </div>
         </Link>
         </div>
-        <p className="text-2xl text-white">
-        {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-        </p>
         </div>
     )
 }
