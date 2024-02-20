@@ -1,11 +1,10 @@
 import * as React from "react"
  
-import { Button } from "~/components/ui/button"
+import { Badge } from "~/components/ui/badge"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card"
@@ -20,9 +19,12 @@ const userCard = (userId: number) => {
             </Avatar>
             <CardHeader>
                 <CardTitle>Username</CardTitle>
-                <CardDescription>Bio</CardDescription>
+                <CardDescription>1,269 followers&nbsp;&nbsp;&nbsp;&nbsp; 420 following</CardDescription>
+                <CardDescription>
+                    <Badge style={{width: "60px"}}>Follow</Badge>
+                </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent style={{marginTop: "-16px"}}>
                 <p>Profile Content</p>
             </CardContent>
         </Card>
