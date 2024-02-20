@@ -22,8 +22,12 @@ import {
 } from "~/components/ui/menubar"
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
+import profileTab from "~/features/tabs/profileTab";
+import { useEffect, useReducer, useState } from "react";
+import React from "react";
 
 export default function Home() {
+  const [tab, setActiveTab] = useState("feed");
 
   return (
     <>
@@ -35,26 +39,22 @@ export default function Home() {
 
       </Head>
 
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <Menubar className="items-end objects-contain bg-foreground border-none" dir="rtl" style={{
-          position: "absolute", 
-          top: "0px", 
+      <main className="relative flex min-h-screen h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#111111]" style={{bottom: "-5px", paddingBottom: "0px"}}>
+        <Menubar className="top-0 sticky items-end objects-contain bg-foreground border-none" dir="rtl" style={{
+          position: "fixed",
           width: "100%", 
           height: "44px",
           borderRadius: "0px", 
-          alignContent: "flex-end", 
-          alignItems: "flex-end", 
           placeContent: "end",
-          float: "right",
         }}>
-          <img className="md:hidden" src={"./sonable_icon.png"} style={{position: "absolute", top: "2px", left: "0px", height: "37px"}} />
-          <a href="/" className="hidden md:flex">
-            <img src={"./sonable_logo_transparent.png"} style={{position: "absolute", top: "2px", left: "0px", height: "37px"}} />
+          <img className="md:hidden sticky top-0" src={"./sonable_icon.png"} style={{left: "0px", height: "37px", zIndex: 51, position: "fixed"}} />
+          <a href="/" className="hidden md:flex sticky top-0">
+            <img className="hidden md:flex sticky top-0" src={"./sonable_logo_transparent.png"} style={{left: "2px", height: "37px", zIndex: 51, position: "fixed"}} />
           </a>
           <MenubarMenu>
-            <MenubarTrigger dir="rtl" className="objects-contain">
+            <MenubarTrigger dir="rtl" className="objects-contain sticky top-0" style={{color: "black", backgroundColor: "black"}}>
               <Avatar style={{marginBottom: "-7px"}}>
-                <AvatarImage src="https://github.com/shadcn.png" style={{marginTop: "0px"}} />
+                <AvatarImage src="https://github.com/shadcn.png" style={{display: "block", zIndex: 51}} />
                 <AvatarFallback>Settings</AvatarFallback>
               </Avatar>
             </MenubarTrigger>
@@ -65,7 +65,7 @@ export default function Home() {
               <MenubarItem>
                 Friends
               </MenubarItem>
-              <MenubarItem>
+              <MenubarItem onSelect = {() => {setActiveTab("profile");}}>
                 View Profile
               </MenubarItem>
               <MenubarItem>
@@ -85,8 +85,19 @@ export default function Home() {
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
-        <Tabs defaultValue="feed" className="w-[33%] h-[100%] border-border" style={{position: "absolute", top: "3px", width: "60%", minWidth: "240px"}}>
-          <TabsList className="grid w-full grid-cols-5 bg-foreground fg-foreground" style={{stroke: "red"}}>
+        <Tabs 
+          value={tab}
+          className="w-[33%] h-screen border-border rounded-lg" 
+          style={{
+            position: "absolute", 
+            top: "3px", 
+            width: "60%", 
+            minWidth: "240px",
+          }}
+          onValueChange={setActiveTab}
+          activationMode="automatic"
+        >
+          <TabsList className="grid w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
             <TabsTrigger value="feed">
               <i data-feather="home"></i>
             </TabsTrigger>
@@ -127,6 +138,9 @@ export default function Home() {
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
               <span className="text-[hsl(280,100%,70%)]">Merch</span> View
             </h1>
+          </TabsContent>
+          <TabsContent value="profile">
+            { profileTab() }
           </TabsContent>
         </Tabs>
       </main>
