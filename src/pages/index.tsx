@@ -34,7 +34,7 @@ export default function Home() {
       <Head>
         <title>Sonable</title>
         <meta name="description" content="Sonable" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/sonable_icon.png" />
         <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async />
 
       </Head>
@@ -87,7 +87,7 @@ export default function Home() {
         </Menubar>
         <Tabs 
           value={tab}
-          className="w-[33%] h-screen border-border rounded-lg" 
+          className="w-[33%] h-screen border-border rounded-lg accent-red-50" 
           style={{
             position: "absolute", 
             top: "3px", 
@@ -98,10 +98,10 @@ export default function Home() {
           activationMode="automatic"
         >
           <TabsList className="grid w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
-            <TabsTrigger value="feed">
+            <TabsTrigger value="feed" className="hover:bg-red-550">
               <i data-feather="home"></i>
             </TabsTrigger>
-            <TabsTrigger value="events">
+            <TabsTrigger value="events" className="hover:bg-red-950">
               <i data-feather="calendar"></i>
             </TabsTrigger>
             <TabsTrigger value="map">

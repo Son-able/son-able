@@ -13,8 +13,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 
 const userCard = (userId: number) => {
     return (
-        <Card className="text-center justify-items-center justify-center items-center z-10 relative">
-            <Avatar style={{height: "124px", width: "124px", display: "block", left: "41%", top: "-32px"}}>
+        <Card className="text-center justify-items-center justify-center items-center z-10 relative bg-black border-none text-white" style={{maxHeight: "200px", marginTop: "40px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px"}}>
+            <Avatar style={{height: "124px", width: "124px", display: "inline-block", top: "-64px", marginBottom: "-80px", outline: "5px solid white"}}>
                 <AvatarImage src="/placeholder_avatar.png" />
                 <AvatarFallback>{userId}</AvatarFallback>
             </Avatar>
@@ -25,9 +25,6 @@ const userCard = (userId: number) => {
             <CardContent>
                 <p>Profile Content</p>
             </CardContent>
-            <CardFooter>
-                <p>Profile Footer</p>
-            </CardFooter>
         </Card>
     )
 }

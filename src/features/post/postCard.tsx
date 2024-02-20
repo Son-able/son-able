@@ -12,7 +12,7 @@ import {
 
 const postCard = (postId: number) => {
     return (
-        <Card>
+        <Card className="text-white bg-black border-none">
             <CardHeader>
                 <CardTitle>Post Title</CardTitle>
                 <CardDescription>Post Description</CardDescription>
