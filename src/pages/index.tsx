@@ -159,7 +159,7 @@ export default function Home() {
             { profileTab() }
           </TabsContent>
         </Tabs>
-        <div className="w-screen">
+        <div className="w-screen sticky bottom-0 p-8" style={{position: "fixed", bottom: "0px"}}>
           {
             fabBar()
           }
