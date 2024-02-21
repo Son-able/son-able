@@ -25,7 +25,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import profileTab from "~/features/tabs/profileTab";
 import { useEffect, useReducer, useState } from "react";
 import React from "react";
-import fabBar from "~/features/navigation/FabBar";
+import fabBar from "~/features/navigation/fabBar";
 
 export default function Home() {
   const [tab, setActiveTab] = useState("feed");
@@ -49,12 +49,12 @@ export default function Home() {
           placeContent: "end",
           zIndex: 40
         }}>
-          <img className="md:hidden sticky top-0" src={"./sonable_icon.png"} style={{left: "5px", top: "3px", height: "37px", zIndex: 51, position: "fixed"}} />
+          <img className="md:hidden sticky top-0" src={"./sonable_icon.png"} style={{left: "16px", top: "3px", height: "37px", zIndex: 51, position: "fixed"}} />
           <a href="/" className="hidden md:flex sticky top-0">
-            <img className="hidden md:flex sticky top-0" src={"./sonable_logo_transparent.png"} style={{left: "5px", height: "37px", top: "3px", zIndex: 51, position: "fixed"}} />
+            <img className="hidden md:flex sticky top-0" src={"./sonable_logo_transparent.png"} style={{left: "16px", height: "37px", top: "3px", zIndex: 51, position: "fixed"}} />
           </a>
           <MenubarMenu>
-            <MenubarTrigger dir="rtl" className="objects-contain sticky top-0" style={{color: "black", backgroundColor: "black"}}>
+            <MenubarTrigger dir="rtl" className="objects-contain sticky top-0" style={{color: "black", backgroundColor: "black", alignItems: "end", alignContent: "end"}}>
               <Avatar style={{marginBottom: "-7px"}}>
                 <AvatarImage src="https://github.com/shadcn.png" style={{display: "block", zIndex: 51}} />
                 <AvatarFallback>Settings</AvatarFallback>
@@ -89,11 +89,11 @@ export default function Home() {
         </Menubar>
         <Tabs 
           value={tab}
-          className="flex justify-center md:w-[60%] w-screen h-60% border-border rounded-lg accent-red-50 items-center" 
+          className="flex justify-center md:w-[60%] w-[100%] border-border rounded-lg accent-red-50 items-center" 
           style={{
             position: "absolute", 
             top: "47px", 
-            height: "100%",
+            height: "90%",
             minWidth: "240px",
           }}
           onValueChange={setActiveTab}
@@ -147,7 +147,7 @@ export default function Home() {
         </Tabs>
         <div className="w-screen">
           {
-            //fabBar()
+            fabBar()
           }
         </div>
       </main>

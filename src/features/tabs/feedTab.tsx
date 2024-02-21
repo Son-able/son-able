@@ -1,5 +1,9 @@
+'use client'
+
 import Link from "next/link";
 import { api } from "~/utils/api";
+
+
 
 const feedTab = () => {
     const hello = api.post.hello.useQuery({ text: "from tRPC" });
