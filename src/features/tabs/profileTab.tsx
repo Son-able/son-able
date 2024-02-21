@@ -6,6 +6,7 @@ import postCard from "../post/postCard";
 import userCard from "../userCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { Separator } from "~/components/ui/separator";
+import mockData from "~/lib/mockData";
 
 const profileTab = () => {
     const hello = api.post.hello.useQuery({ text: "from tRPC" });
@@ -51,8 +52,8 @@ const profileTab = () => {
                         </TabsTrigger>
                     </TabsList>
                     <TabsContent value="profileFeed">
-                        {postCard(10)}
-                        {postCard(20)}
+                        {postCard(mockData.mockPosts[0])}
+                        {postCard(mockData.mockPosts[1])}
                     </TabsContent>
                 </Tabs>
             </ScrollArea>

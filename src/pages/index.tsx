@@ -89,7 +89,7 @@ export default function Home() {
         </Menubar>
         <Tabs 
           value={tab}
-          className="flex justify-center md:w-[60%] w-[100%] border-border rounded-lg accent-red-50 items-center" 
+          className="flex justify-center md:w-[60%] w-[100%] border-border rounded-lg accent-primary items-center" 
           style={{
             position: "absolute", 
             top: "47px", 
@@ -99,20 +99,20 @@ export default function Home() {
           onValueChange={setActiveTab}
           activationMode="automatic"
         >
-          <TabsList className="absolute grid md:ml-0 w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center justify-items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
-            <TabsTrigger value="feed" className="hover:bg-red-550">
+          <TabsList className="absolute accent-primary fg-primary bg-transparent grid md:ml-0 w-[60%] top-0 sticky grid-cols-5 items-center justify-items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
+            <TabsTrigger value="feed" className="hover:bg-secondary">
               <i data-feather="home"></i>
             </TabsTrigger>
-            <TabsTrigger value="events" className="hover:bg-red-950">
+            <TabsTrigger value="events" className="hover:bg-secondary">
               <i data-feather="calendar"></i>
             </TabsTrigger>
-            <TabsTrigger value="map">
+            <TabsTrigger value="map" className="hover:bg-secondary">
               <i data-feather="map-pin"></i>
             </TabsTrigger>
-            <TabsTrigger value="communities">
+            <TabsTrigger value="communities" className="hover:bg-secondary">
               <i data-feather="users"></i>
             </TabsTrigger>
-            <TabsTrigger value="merch">
+            <TabsTrigger value="merch" className="hover:bg-secondary">
               <i data-feather="shopping-bag"></i>
             </TabsTrigger>
           </TabsList>
