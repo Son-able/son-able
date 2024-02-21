@@ -21,14 +21,22 @@ import {
   MenubarTrigger,
 } from "~/components/ui/menubar"
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "~/components/ui/popover"
+
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import profileTab from "~/features/tabs/profileTab";
 import { useEffect, useReducer, useState } from "react";
 import React from "react";
 import fabBar from "~/features/navigation/fabBar";
+import { Input } from "~/components/ui/input";
 
 export default function Home() {
   const [tab, setActiveTab] = useState("feed");
+  const [searchActive, setSearchActive] = useState(false)
 
   return (
     <>
@@ -99,22 +107,30 @@ export default function Home() {
           onValueChange={setActiveTab}
           activationMode="automatic"
         >
-          <TabsList className="absolute accent-primary fg-primary bg-transparent grid md:ml-0 w-[60%] top-0 sticky grid-cols-5 justify-items-center focus:bg-red" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
+          <TabsList className="absolute accent-primary fg-primary bg-transparent grid md:ml-0 w-[60%] top-0 sticky grid-cols-6 justify-items-center focus:bg-red" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
             <TabsTrigger value="feed" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
-              <i data-feather="home"></i>
+              <i data-feather="home" style={{minWidth: "32px"}}></i>
             </TabsTrigger>
             <TabsTrigger value="events" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
-              <i data-feather="calendar"></i>
+              <i data-feather="calendar" style={{minWidth: "32px"}}></i>
             </TabsTrigger>
             <TabsTrigger value="map" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
-              <i data-feather="map-pin"></i>
+              <i data-feather="map-pin" style={{minWidth: "32px"}}></i>
             </TabsTrigger>
             <TabsTrigger value="communities" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
-              <i data-feather="users"></i>
+              <i data-feather="users" style={{minWidth: "32px"}}></i>
             </TabsTrigger>
             <TabsTrigger value="merch" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
-              <i data-feather="shopping-bag"></i>
+              <i data-feather="shopping-bag" style={{minWidth: "32px"}}></i>
             </TabsTrigger>
+              <Popover>
+                <PopoverTrigger className="bg-transparent">
+                  <i data-feather="search"></i>
+                </PopoverTrigger>
+                <PopoverContent className="bg-transparent border-none accent-white outline-none focus:outline-none focus:border-none">
+                  <Input defaultValue="Search" className="text-white border-none outline-none focus:border-white focus:outline-none bg-black focus:border-color-white focus:outline-color-white" style={{outline: "1px solid gray", border: "1px solid gray", outlineOffset: "0px"}}></Input>
+                </PopoverContent>
+              </Popover>
           </TabsList>
           <TabsContent value="feed" className={"w-[100%]"}>
               { feedTab() }
