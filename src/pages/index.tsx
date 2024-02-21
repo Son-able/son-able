@@ -25,6 +25,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import profileTab from "~/features/tabs/profileTab";
 import { useEffect, useReducer, useState } from "react";
 import React from "react";
+import fabBar from "~/features/navigation/FabBar";
 
 export default function Home() {
   const [tab, setActiveTab] = useState("feed");
@@ -48,9 +49,9 @@ export default function Home() {
           placeContent: "end",
           zIndex: 40
         }}>
-          <img className="md:hidden sticky top-0" src={"./sonable_icon.png"} style={{left: "0px", height: "37px", zIndex: 51, position: "fixed"}} />
+          <img className="md:hidden sticky top-0" src={"./sonable_icon.png"} style={{left: "5px", top: "3px", height: "37px", zIndex: 51, position: "fixed"}} />
           <a href="/" className="hidden md:flex sticky top-0">
-            <img className="hidden md:flex sticky top-0" src={"./sonable_logo_transparent.png"} style={{left: "2px", height: "37px", zIndex: 51, position: "fixed"}} />
+            <img className="hidden md:flex sticky top-0" src={"./sonable_logo_transparent.png"} style={{left: "5px", height: "37px", top: "3px", zIndex: 51, position: "fixed"}} />
           </a>
           <MenubarMenu>
             <MenubarTrigger dir="rtl" className="objects-contain sticky top-0" style={{color: "black", backgroundColor: "black"}}>
@@ -88,10 +89,10 @@ export default function Home() {
         </Menubar>
         <Tabs 
           value={tab}
-          className="w-[33%] h-screen border-border rounded-lg accent-red-50" 
+          className="w-screen h-60% border-border rounded-lg accent-red-50" 
           style={{
             position: "absolute", 
-            top: "3px", 
+            top: "47px", 
             width: "60%", 
             height: "100%",
             minWidth: "240px",
@@ -99,7 +100,7 @@ export default function Home() {
           onValueChange={setActiveTab}
           activationMode="automatic"
         >
-          <TabsList className="grid w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
+          <TabsList className="grid w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center" style={{top: "0px",stroke: "red", zIndex: 50, position: "fixed", marginTop: "3px"}}>
             <TabsTrigger value="feed" className="hover:bg-red-550">
               <i data-feather="home"></i>
             </TabsTrigger>
@@ -145,6 +146,11 @@ export default function Home() {
             { profileTab() }
           </TabsContent>
         </Tabs>
+        <div className="w-screen">
+          {
+            //fabBar()
+          }
+        </div>
       </main>
       <Script>
         feather.replace();

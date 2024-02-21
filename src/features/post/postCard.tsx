@@ -14,13 +14,13 @@ import { Separator } from "~/components/ui/separator"
 
 const postCard = (postId: number) => {
     return (
-        <Card className="text-white bg-[#2f272a] bg-opacity-40 border-none" style={{margin: "10px", padding: "10px", paddingBottom: "-30px", height: "200px"}}>
-            <Button className="grid grid-cols-2 justify-items-left object-contain h-[64px] w-[160px] bg-transparent hover:bg-transparent" style={{boxShadow: "none"}}>
-                <Avatar style={{marginLeft: "-8px"}}>
+        <Card className="text-white bg-[#2f272a] bg-opacity-40 border-none z-20" style={{margin: "10px", padding: "10px", paddingBottom: "-30px", height: "200px"}}>
+            <Button className="grid grid-cols-2 justify-items-left object-contain h-[64px] w-[160px] bg-transparent hover:bg-transparent z-20" style={{boxShadow: "none"}}>
+                <Avatar className="z-30" style={{marginLeft: "-8px"}}>
                     <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>Username</AvatarFallback>
                 </Avatar>
-                <div className="grid grid-rows=2 justify-items-left text-left" style={{maxWidth: "50px", marginLeft: "-16px"}}>
+                <div className="grid grid-rows=2 justify-items-left text-left z-30" style={{maxWidth: "50px", marginLeft: "-16px"}}>
                     <CardTitle>Username</CardTitle>
                     <CardDescription>Post Date</CardDescription>
                 </div>
