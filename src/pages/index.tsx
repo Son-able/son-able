@@ -40,7 +40,7 @@ export default function Home() {
 
       </Head>
 
-      <main className="relative flex min-h-screen h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#111111]" style={{bottom: "-5px", paddingBottom: "0px"}}>
+      <main className="relative flex min-h-screen h-screen flex-col items-center justify-center align-items-center bg-gradient-to-b from-[#000000] to-[#111111]" style={{bottom: "-5px", paddingBottom: "0px"}}>
         <Menubar className="top-0 sticky items-end objects-contain bg-foreground border-none" dir="rtl" style={{
           position: "fixed",
           width: "100%", 
@@ -89,18 +89,17 @@ export default function Home() {
         </Menubar>
         <Tabs 
           value={tab}
-          className="w-screen h-60% border-border rounded-lg accent-red-50" 
+          className="flex justify-center md:w-[60%] w-screen h-60% border-border rounded-lg accent-red-50 items-center" 
           style={{
             position: "absolute", 
             top: "47px", 
-            width: "60%", 
             height: "100%",
             minWidth: "240px",
           }}
           onValueChange={setActiveTab}
           activationMode="automatic"
         >
-          <TabsList className="grid w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center" style={{top: "0px",stroke: "red", zIndex: 50, position: "fixed", marginTop: "3px"}}>
+          <TabsList className="absolute grid md:ml-0 w-[60%] top-0 sticky grid-cols-5 bg-foreground fg-foreground items-center justify-items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
             <TabsTrigger value="feed" className="hover:bg-red-550">
               <i data-feather="home"></i>
             </TabsTrigger>
