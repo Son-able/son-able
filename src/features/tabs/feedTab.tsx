@@ -1,16 +1,12 @@
 'use client'
 
-import Link from "next/link";
 import { api } from "~/utils/api";
-
 import mockData from "~/lib/mockData";
 import { ScrollArea, ScrollBar } from "~/components/ui/scroll-area";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableHead,
   TableHeader,
   TableRow,
 } from "~/components/ui/table"
