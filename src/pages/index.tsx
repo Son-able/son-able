@@ -46,6 +46,7 @@ export default function Home() {
           height: "44px",
           borderRadius: "0px", 
           placeContent: "end",
+          zIndex: 40
         }}>
           <img className="md:hidden sticky top-0" src={"./sonable_icon.png"} style={{left: "0px", height: "37px", zIndex: 51, position: "fixed"}} />
           <a href="/" className="hidden md:flex sticky top-0">
@@ -92,6 +93,7 @@ export default function Home() {
             position: "absolute", 
             top: "3px", 
             width: "60%", 
+            height: "100%",
             minWidth: "240px",
           }}
           onValueChange={setActiveTab}
@@ -139,7 +141,7 @@ export default function Home() {
               <span className="text-[hsl(280,100%,70%)]">Merch</span> View
             </h1>
           </TabsContent>
-          <TabsContent value="profile">
+          <TabsContent className="h-screen" value="profile">
             { profileTab() }
           </TabsContent>
         </Tabs>

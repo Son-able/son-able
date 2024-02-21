@@ -10,8 +10,8 @@ import { Separator } from "~/components/ui/separator";
 const profileTab = () => {
     const hello = api.post.hello.useQuery({ text: "from tRPC" });
     return (
-        <div className="container flex flex-col items-center justify-center justify-items-center gap-12 px-4 py-16 ">
-            <ScrollArea className="w-[100%] h-dvh whitespace-nowrap rounded-xl justify-items-center" style={{marginTop: "0px", marginBottom: "0px", bottom: "10px"}}>
+        <div className="container flex flex-col items-center justify-center justify-items-center gap-4 px-4 py-0 h-screen">
+            <ScrollArea className="w-[100%] whitespace-nowrap rounded-xl justify-items-center h-screen" style={{marginTop: "0px", marginBottom: "0px", bottom: "10px"}}>
 
                 <ScrollBar orientation="vertical" className="z-30" />
                 <div className="w-[100%] h-[10%] rounded-xl z-0" style={{maxHeight: "300px", display: "inline-block", marginBottom: "-30px", position: "relative"}}>
@@ -33,7 +33,7 @@ const profileTab = () => {
                         height: "44px"
                     }}
                 >
-                    <TabsList className="grid w-[100%] grid-cols-5 bg-foreground fg-foreground items-center z-20">
+                    <TabsList className="grid w-[100%] grid-cols-5 bg-foreground fg-foreground items-center z-40">
                         <TabsTrigger value="profileFeed">
                             Feed
                         </TabsTrigger>
@@ -51,9 +51,7 @@ const profileTab = () => {
                         </TabsTrigger>
                     </TabsList>
                     <TabsContent value="profileFeed">
-                        <Separator />
                         {postCard(10)}
-                        <Separator />
                         {postCard(20)}
                     </TabsContent>
                 </Tabs>
