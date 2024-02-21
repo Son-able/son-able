@@ -27,7 +27,7 @@ const postCard = (post: any) => {
                     <CardDescription suppressHydrationWarning>{post.op.createdAt.toLocaleString()}</CardDescription>
                 </div>
             </Button>
-            <CardContent style={{marginTop: "24px", marginLeft: "-16px"}}>
+            <CardContent style={{marginTop: "24px", marginLeft: "-12px"}}>
                 <p>{post.message}</p>
             </CardContent>
             <CardFooter className="rounded-none" style={{borderRadius: "0px", marginLeft: "-16px", marginRight: "-16px"}}>

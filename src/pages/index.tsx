@@ -99,27 +99,25 @@ export default function Home() {
           onValueChange={setActiveTab}
           activationMode="automatic"
         >
-          <TabsList className="absolute accent-primary fg-primary bg-transparent grid md:ml-0 w-[60%] top-0 sticky grid-cols-5 items-center justify-items-center" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
-            <TabsTrigger value="feed" className="hover:bg-secondary">
+          <TabsList className="absolute accent-primary fg-primary bg-transparent grid md:ml-0 w-[60%] top-0 sticky grid-cols-5 justify-items-center focus:bg-red" style={{stroke: "red", zIndex: 50, position: "fixed"}}>
+            <TabsTrigger value="feed" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
               <i data-feather="home"></i>
             </TabsTrigger>
-            <TabsTrigger value="events" className="hover:bg-secondary">
+            <TabsTrigger value="events" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
               <i data-feather="calendar"></i>
             </TabsTrigger>
-            <TabsTrigger value="map" className="hover:bg-secondary">
+            <TabsTrigger value="map" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
               <i data-feather="map-pin"></i>
             </TabsTrigger>
-            <TabsTrigger value="communities" className="hover:bg-secondary">
+            <TabsTrigger value="communities" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
               <i data-feather="users"></i>
             </TabsTrigger>
-            <TabsTrigger value="merch" className="hover:bg-secondary">
+            <TabsTrigger value="merch" className="hover:bg-secondary w-[100%] rounded-none focus:bg-primary">
               <i data-feather="shopping-bag"></i>
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="feed">
-            <div style={{all: "unset"}}>
+          <TabsContent value="feed" className={"w-[100%]"}>
               { feedTab() }
-            </div>
           </TabsContent>
           <TabsContent value="events">
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
