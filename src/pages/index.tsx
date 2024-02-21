@@ -3,7 +3,7 @@ import Head from "next/head";
 import Script from "next/script"
 import Image from 'next/image'
 import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
 
 import feedTab from "../features/tabs/feedTab"
@@ -33,7 +33,7 @@ export default function Home() {
   const [tab, setActiveTab] = useState("feed");
 
   const { isLoaded, userId, sessionId, getToken } = useAuth();
-
+  const user = useUser()
   return (
     <>
       <Head>
@@ -58,7 +58,7 @@ export default function Home() {
           <MenubarMenu>
             <MenubarTrigger dir="rtl" className="objects-contain sticky top-0" style={{color: "black", backgroundColor: "black"}}>
               <Avatar style={{marginBottom: "-7px"}}>
-                <AvatarImage src="https://github.com/shadcn.png" style={{display: "block", zIndex: 51}} />
+                <AvatarImage src={user.user?.imageUrl} style={{display: "block", zIndex: 51}} />
                 <AvatarFallback>Settings</AvatarFallback>
               </Avatar>
             </MenubarTrigger>

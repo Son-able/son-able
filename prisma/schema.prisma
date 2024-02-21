@@ -14,6 +14,22 @@ datasource db {
     relationMode = "prisma"
 }
 
+model User{
+    id Int @id @default(autoincrement())
+    userId String
+    userName String
+    firstName String
+    lastName String
+    createdAt DateTime @default(now())
+    birthdate DateTime
+    email String
+    softDelete Boolean
+}
+
+
+
+
+
 model Post {
     id        Int      @id @default(autoincrement())
     name      String

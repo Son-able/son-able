@@ -31,7 +31,8 @@ const feedTab = () => {
             database and authentication.
             </div>
             <div>
-                {JSON.stringify([user?.fullName, user?.username])}
+                {JSON.stringify([user?.fullName, user?.username, user?.createdAt,])}
+                {/* {JSON.stringify(user)} */}
             </div>
         </Link>
         <Link
